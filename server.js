@@ -17,14 +17,15 @@ function processPost(request, response, callback) {
 var server = http.createServer(function(req, res) {
   processPost(req, res, function() {
     res.writeHead(200);
-
-    res.end(JSON.stringify({
+    var output = JSON.stringify({
       method: req.method,
       url: req.url,
       headers: req.headers,
       body: req.body,
       
-    }, null, 4));
+    }, null, 4);
+    console.log(output)
+    res.end(output);
   });
 });
 
